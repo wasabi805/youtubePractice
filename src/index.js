@@ -1,5 +1,3 @@
-
-//Always create one component per file.
 import React from 'react';
 import ReactDOM from 'react-dom';
 
