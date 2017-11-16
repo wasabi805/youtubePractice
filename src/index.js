@@ -1,5 +1,3 @@
-//Section 2 Lesson 02: ##### REFACTOR FUNCTIONAL COMPONENTS #####
-
 
 
 //THE PARENT COMPONENT - index.js
@@ -9,7 +7,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search-bar';
-
+import VideoList from './components/video-list';
 
 
 //VARIABLES
@@ -23,12 +21,6 @@ class App extends Component {
         super(props)
         this.state ={videos:[]}
 
-        //remember that YTSearch is a CALLBACK func()
-        //YTSearch is passed {} containing API_KEY and term key-pair-val , func(youTubeVids) and, this.setState as args)
-
-        //REMEMBER: since YTSearch is within the constructor, it is an instance of state at a given time(after the API call
-        // returns with data)
-
         YTSearch({key: API_KEY, term: 'cats'},
             (videos) => {
             this.setState({ videos })
@@ -36,8 +28,13 @@ class App extends Component {
     }
 
     render() {
-        return (<div>Youtube components<SearchBar /></div>);
-    }}
+        return (
+            <div>Youtube components
+                <SearchBar />
+                <VideoList videos={this.state.videos}/>
+            </div>);
+    }
+}
 
 ReactDOM.render(<App />, document.querySelector('.root'));
 
