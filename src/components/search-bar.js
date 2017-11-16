@@ -1,5 +1,3 @@
-//Section 1 Lesson 19: ##### CONTROLLED COMPONENTS #####
-
 import React, { Component} from 'react';
 
 class SearchBar extends Component {
