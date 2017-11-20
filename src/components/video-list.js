@@ -1,11 +1,18 @@
-// Section 2 Lesson 03: ##### PROPS - ALSO REVIEW on RENDERING CHILD COMPONENTS  #####
 
+// *****    video-list.js   *******
 import React from 'react';
+import VideoListItem from './video-list-item';
 
 const VideoList = (props) => {
+
+    const videoItems = props.videos.map((video) =>{
+        return <VideoListItem video={video} />
+        }
+    );
+
     return (
         <ul className="col-md-4 list-group">
-            {props.videos.length}
+            {videoItems}
         </ul>
     );
 };
