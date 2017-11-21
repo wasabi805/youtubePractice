@@ -1,6 +1,4 @@
 
-//THE PARENT COMPONENT - index.js
-
 //COMPONENTS
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
@@ -22,21 +20,27 @@ class App extends Component {
         this.state ={
             videos:[],
             selectedVideo: null
-        }
+        };
 
-        YTSearch({key: API_KEY, term: 'marvel'},
+        this.videoSearch('marvel');
+    }
+
+    videoSearch(term){
+        YTSearch({key: API_KEY, term: term},
             (videos) => {
-            this.setState({
-                videos: videos,
-                selectedVideo: videos[0]
-            })
-        });
+                this.setState({
+                    videos: videos,
+                    selectedVideo: videos[0]
+                });
+            }
+        );
+
     }
 
     render() {
         return (
             <div>
-                <SearchBar />
+                <SearchBar onSearchTermChange={term => this.videoSearch(term)} />
                 <VideoDetail video={this.state.selectedVideo}/>
                 <VideoList
                     onVideoSelect={selectedVideo => this.setState({selectedVideo})}
