@@ -35,7 +35,7 @@ class App extends Component {
 
     render() {
         return (
-            <div>Youtube components
+            <div>
                 <SearchBar />
                 <VideoDetail video={this.state.selectedVideo}/>
                 <VideoList

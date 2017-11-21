@@ -1,0 +1,32 @@
+/*      *****   style.css    ******  */
+
+.search-bar{
+    margin: 20px;
+    text-align: center;
+}
+
+/*styling for user input data into search bar*/
+.search-bar input{
+    width: 75%;
+}
+
+/*styling for thumbnails*/
+.video-item img{
+    max-width: 64px;
+}
+
+/*individual video details for videos on right hand panel*/
+.video-detail .details{
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.list-group-item{
+    cursor: pointer; /* for when user hovers over video, they know they can click on it */
+}
+
+.list-group-item:hover{
+    background-color: #eee;
+}
