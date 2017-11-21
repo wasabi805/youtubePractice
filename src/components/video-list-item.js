@@ -1,17 +1,21 @@
 
 import React from 'react';
 
-const VideoListItem = ({video}) => {
+const VideoListItem = ({video, onVideoSelect}) => { // <----see notes from video-list.js to see how
+                                                    // we're able to pass onVideoSelect as a prop
     // const video = props.video;
-    // ES6 syntax: passing in {video} as an arg eliminates the need to
-    // define 'const video = props.video' within the class.
+    // const onVideoSelect = props.onVideoSelect;
+
+    // ES6 syntax: passing in {video and onVideoSelect} as an args eliminates the need to
+    // define 'const video = props.video' and const onVideoSelect = props.onVideoSelect within the class.
     console.log(video)
 
     const imageUrl = video.snippet.thumbnails.default.url;
 
-    return (<li className="list-group-item">
-            {/*Bootstrap classes*/}
-            <div className="video-list media">
+    return (
+        <li onClick={() => onVideoSelect(video)} className="list-group-item"> {/*see notes for line 4 for explanation as..*/}
+                                                                                {/*how we're able to use onVideoSelect(video) */}
+            <div className="video-list media">                                  {/*when we run the onClick function */}
 
                 <div className="media-left">
                     <img className="media-object" src={imageUrl} />
