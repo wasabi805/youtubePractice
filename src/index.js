@@ -1,5 +1,4 @@
 
-
 //THE PARENT COMPONENT - index.js
 
 //COMPONENTS
@@ -8,10 +7,10 @@ import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search-bar';
 import VideoList from './components/video-list';
-
+import VideoDetail from './components/video-detail';
 
 //VARIABLES
-const API_KEY = 'AIzaSyB3lwz55zUHvylyF80AEV6hhYBDSLZj9xo';
+const API_KEY = 'AIzaSyC5Yq9OaMfek6Oydozhcx88PL-JLGM4gps';
 
 
 //Rendered Components go here:
@@ -23,7 +22,7 @@ class App extends Component {
 
         YTSearch({key: API_KEY, term: 'cats'},
             (videos) => {
-            this.setState({ videos })
+            this.setState({ videos });
         });
     }
 
@@ -32,6 +31,7 @@ class App extends Component {
             <div>Youtube components
                 <SearchBar />
                 <VideoList videos={this.state.videos}/>
+                <VideoDetail video={this.state.videos[0]}/>
             </div>);
     }
 }
