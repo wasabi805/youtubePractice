@@ -13,7 +13,7 @@ const VideoListItem = ({video, onVideoSelect}) => { // <----see notes from video
     const imageUrl = video.snippet.thumbnails.default.url;
 
     return (
-        <li onClick={() => onVideoSelect(video)} className="list-group-item"> {/*see notes for line 4 for explanation as..*/}
+        <li onClick={() => onVideoSelect(video)} className="list-group-item">   {/*see notes for line 4 for explanation as..*/}
                                                                                 {/*how we're able to use onVideoSelect(video) */}
             <div className="video-list media">                                  {/*when we run the onClick function */}
 
